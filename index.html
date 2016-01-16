@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="popoverApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="dist/css/ngpopover.css">
+	<link rel="stylesheet" href="dist/css/demo.css"> 
+</head>
+<body ng-controller="masterController">
+	<header>
+		<h1>ngPopover <br><small>An elegant, easily customizable generic popover in Angular <br>that <span>transcludes your custom HTML</span>.</small></h1>
+	</header>
+	<div class="popover-demo-container">
+		<span class="button ng-popover-trigger" id="normal-popover">Popover with Text</span>
+		<span class="button ng-popover-trigger" id="heading-popover">Popover with Heading</span>
+		<span class="button ng-popover-trigger" id="custom-popover">Popover with Custom Template</span>
+	</div>
+	<div class="flash-message" ng-class="datepicker ? 'vis' : 'hidden'">
+		
+	</div>
+	<footer>
+		<a href="https://github.com/FauzanKhan/angular-popover.git" target="_blank">
+			<!-- <i class="material-icons">github</i> <--><img src="http://cdn.flaticon.com/png/256/25231.png" alt=""></--> Fork on GitHub
+		</a>
+	</footer>
+	<ng-popover trigger="normal-popover" popover-class="normal-text-popover" direction="left">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur nulla incidunt provident quibusdam laborum suscipit. Vel laborum cupiditate, harum hic error ipsum dolorum, facilis culpa quo tenetur fugit eveniet illum.
+	</ng-popover>
+	<ng-popover trigger="heading-popover" popover-class="heading-popover" direction="top">
+		<h4>This text is inside an &lt;h4&gt; tag!</h4>
+	</ng-popover>
+	<ng-popover trigger="custom-popover" popover-class="custom-popover">
+	    <div class="condition-popover">
+	      	<div class="popover-header">
+	        	<div class="popover-header-content clearfix">
+	          		<div class="title">
+	            		Field
+	          		</div>
+	          		<div class="options">
+	            		<div class="option">
+	              			<input type="radio" id="opt1" name="option">
+	              			<label for="opt1">Label</label>
+	            		</div>
+	            		<div class="option">
+			              <input type="radio" id="opt2" name="option">
+			              <label for="opt2">Label</label>
+			            </div>
+			            <div class="option">
+			        	    <input type="radio" id="option3" name="option">
+			            	<label for="option3">Label</label>
+			            </div>
+	          		</div>
+	        	</div>
+	      	</div>
+	      	<div class="popover-body">You can do some super crazy stuff here and this popover will hold. <span>Believe it!</span></div>
+	      	<div class="popover-footer text-right">
+	      		<span class="button">Cancel</span>
+	      		<span class="button">Okay</span>
+	      	</div>
+	    </div>
+	</ng-popover>
+	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0-rc.2/angular.min.js"></script>
+	<script src="src/js/app.js"></script>
+	<script src="src/js/ngPopover.js"></script>
+</body>
+</html>
