@@ -4,7 +4,7 @@ An elegant, easily customizable generic popover in Angular that transcludes cust
 ### Description
 * An angular directive for generic popovers.
 * Popovers can contain simple text to complex html templates.
-* Popovers can have callbak functions for opening and closing.
+* Popovers can have callback functions for opening and closing.
 * The script also provides a factory to close all or specific directives manually
 ![](http://s21.postimg.org/8zwq3pzzb/popover1.png)
 
@@ -51,6 +51,27 @@ angular.module('myApp', ['ngPopover']);
 ```
 
 * Ideally all your popovers should be present at the bottom of the body.
+
+* To manually close a popover use ```ngPopoverFactory```
+* Inject ```ngPopoverFactory``` in you controller : 
+
+```javascript
+angular.module("myApp").controller("myController", function(ngPopoverFactory){
+
+});
+```
+
+* Once you've injected the factory you can manually close the dropdown by calling the closePopover function of the factory: 
+
+```
+ngPopoverFactory.closePopover(triggerId)
+```
+
+* You can also close all the popovers at the same time by calling closeAll function of thr factory: 
+
+```
+ngPopoverFactory.closeAll();
+```
 
 ###Customization
 You can easily customize the look and feel of the popover by changing the following variables in the ngPopover.scss file as per your requirement:
