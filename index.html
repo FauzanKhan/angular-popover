@@ -21,7 +21,7 @@
 	</div>
 	<footer>
 		<a href="https://github.com/FauzanKhan/angular-popover.git" target="_blank">
-			<!-- <i class="material-icons">github</i> <--><img src="http://cdn.flaticon.com/png/256/25231.png" alt=""></--> Fork on GitHub
+			<img src="http://cdn.flaticon.com/png/256/25231.png" alt=""></--> Fork on GitHub
 		</a>
 	</footer>
 	<ng-popover trigger="normal-popover" popover-class="normal-text-popover" direction="left" on-open="openCallback('text popover')" on-close="closeCallbacl('text popover')">
@@ -55,8 +55,8 @@
 	      	</div>
 	      	<div class="popover-body">You can do some super crazy stuff here and this popover wont break.<br> <span>Believe it!</span></div>
 	      	<div class="popover-footer text-right">
-	      		<span class="button">Cancel</span>
-	      		<span class="button">Okay</span>
+	      		<span class="button" ng-click="closePopover('custom-popover')">Cancel</span>
+	      		<span class="button" ng-click="closePopover('custom-popover')">Okay</span>
 	      	</div>
 	    </div>
 	</ng-popover>

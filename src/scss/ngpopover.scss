@@ -1,7 +1,7 @@
 $background-color: #FFF;
 $border-color: #EAEAEA;
 
-.generic-dropdown{
+.ng-popover{
     border: 1px solid #EAEAEA;
     position: relative;
     border-radius: 4px;
@@ -9,7 +9,7 @@ $border-color: #EAEAEA;
     min-height: 20px;
     background: #FFF;
     z-index: 10;
-    .generic-dropdown-wrapper{
+    .ng-popover-wrapper{
         position: relative;
             &.bottom{
                 &::before{
@@ -100,11 +100,11 @@ $border-color: #EAEAEA;
             }
         }
     }
-    .generic-dropdown-content{
+    .ng-popover-content{
         overflow: auto;
     }
 } 
 
-.generic-dropdown.hide{
+.ng-popover.hide{
     display: none; 
 }

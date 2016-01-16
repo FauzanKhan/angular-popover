@@ -21,16 +21,16 @@ app.directive('ngPopover', function() {
             }
             var left, top;
             var trigger = angular.element('#'+$scope.trigger);
-            var target = angular.element('.generic-dropdown[trigger="'+$scope.trigger+'"]');
+            var target = angular.element('.ng-popover[trigger="'+$scope.trigger+'"]');
             $scope.dropDirection = attrs.direction || 'bottom';
             trigger.bind('click', function(ev){
                 var left, top;
                 var trigger = angular.element('#'+$scope.trigger);
-                var target = angular.element('.generic-dropdown[trigger="'+$scope.trigger+'"]');
+                var target = angular.element('.ng-popover[trigger="'+$scope.trigger+'"]');
                 ev.preventDefault();
                 // ev.stopPropagation();
                 calcPopoverPosition(trigger, target);
-                angular.element('.generic-dropdown').not('[trigger="'+$scope.trigger+'"]').addClass('hide');
+                angular.element('.ng-popover').not('[trigger="'+$scope.trigger+'"]').addClass('hide');
                 target.toggleClass('hide');
                 if(!target.hasClass('hide')){
                     ctrl.registerBodyListener();
@@ -42,10 +42,6 @@ app.directive('ngPopover', function() {
                     $scope.onClose();
                     $scope.$apply();
                 }
-            });
-
-            target.bind('click', function(e){
-                e.stopPropagation();
             });
 
             var getTriggerOffset = function(){
@@ -95,15 +91,15 @@ app.directive('ngPopover', function() {
         controller: ['$scope', function($scope){
             var bodyListenerLogic = function(e){
                 var clickedElement = e.target;
-                var insideDropdown = false;
+                var insidePopover = false;
                 do {
-                    if(clickedElement != document && (clickedElement.classList && (clickedElement.classList.contains('generic-dropdown') || clickedElement.classList.contains('ng-popover-trigger')))) {
-                        insideDropdown = true;
-                        break;
+                    if(clickedElement != document && (clickedElement.classList && (clickedElement.classList.contains('ng-popover') || clickedElement.classList.contains('ng-popover-trigger')))) {
+                        insidePopover = true;
+                    break;
                     }
                 } while ((clickedElement = clickedElement.parentNode));
-                if(!insideDropdown) {
-                    angular.element('.generic-dropdown').addClass('hide');
+                if(!insidePopover) {
+                    angular.element('.ng-popover').addClass('hide');
                     document.body.removeEventListener('click', bodyListenerLogic);
                     $scope.onClose();
                     $scope.$apply();
@@ -117,16 +113,17 @@ app.directive('ngPopover', function() {
                 document.body.removeEventListener('click', bodyListenerLogic)
             }
         }],
-    	template: '<div class="generic-dropdown hide" ng-style="style"><div class="generic-dropdown-wrapper {{dropDirection}}"><div class="generic-dropdown-content" ng-class="popoverClass"><ng-transclude></ng-transclude></div></div></div>'
+    	template: '<div class="ng-popover hide" ng-style="style"><div class="ng-popover-wrapper {{dropDirection}}"><div class="ng-popover-content" ng-class="popoverClass"><ng-transclude></ng-transclude></div></div></div>'
     }
 });
-app.service('genericDropdownService', function(){
+
+app.factory('ngPopoverFactory', function(){
     return {
-        closeDropdown : function(trigger){
-            angular.element('.generic-dropdown[trigger='+trigger+']').addClass('hide');
+        closePopover : function(trigger){
+            angular.element('.ng-popover[trigger='+trigger+']').addClass('hide');
         },
         closeAll : function(){
-            angular.element('.generic-dropdown').addClass('hide');
+            angular.element('.ng-popover').addClass('hide');
         }
     }
 })

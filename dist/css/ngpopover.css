@@ -1,4 +1,4 @@
-.generic-dropdown {
+.ng-popover {
   border: 1px solid #EAEAEA;
   position: relative;
   border-radius: 4px;
@@ -6,9 +6,9 @@
   min-height: 20px;
   background: #FFF;
   z-index: 10; }
-  .generic-dropdown .generic-dropdown-wrapper {
+  .ng-popover .ng-popover-wrapper {
     position: relative; }
-    .generic-dropdown .generic-dropdown-wrapper.bottom::before {
+    .ng-popover .ng-popover-wrapper.bottom::before {
       content: ' ';
       position: absolute;
       top: -9px;
@@ -17,7 +17,7 @@
       border-left: 9px solid transparent;
       border-right: 9px solid transparent;
       z-index: 2; }
-    .generic-dropdown .generic-dropdown-wrapper.bottom::after {
+    .ng-popover .ng-popover-wrapper.bottom::after {
       content: ' ';
       position: absolute;
       top: -10px;
@@ -26,7 +26,7 @@
       border-left: 9px solid transparent;
       border-right: 9px solid transparent;
       z-index: 1; }
-    .generic-dropdown .generic-dropdown-wrapper.top::before {
+    .ng-popover .ng-popover-wrapper.top::before {
       content: ' ';
       position: absolute;
       bottom: -7px;
@@ -35,7 +35,7 @@
       border-left: 7px solid transparent;
       border-right: 7px solid transparent;
       z-index: 2; }
-    .generic-dropdown .generic-dropdown-wrapper.top::after {
+    .ng-popover .ng-popover-wrapper.top::after {
       content: ' ';
       position: absolute;
       bottom: -9px;
@@ -44,7 +44,7 @@
       border-left: 9px solid transparent;
       border-right: 9px solid transparent;
       z-index: 1; }
-    .generic-dropdown .generic-dropdown-wrapper.left::before {
+    .ng-popover .ng-popover-wrapper.left::before {
       content: ' ';
       position: absolute;
       right: -8px;
@@ -53,7 +53,7 @@
       border-top: 8px solid transparent;
       border-bottom: 8px solid transparent;
       z-index: 2; }
-    .generic-dropdown .generic-dropdown-wrapper.left::after {
+    .ng-popover .ng-popover-wrapper.left::after {
       content: ' ';
       position: absolute;
       right: -9px;
@@ -62,7 +62,7 @@
       border-top: 9px solid transparent;
       border-bottom: 9px solid transparent;
       z-index: 1; }
-    .generic-dropdown .generic-dropdown-wrapper.right::before {
+    .ng-popover .ng-popover-wrapper.right::before {
       content: ' ';
       position: absolute;
       top: 5px;
@@ -71,7 +71,7 @@
       border-top: 8px solid transparent;
       border-bottom: 8px solid transparent;
       z-index: 2; }
-    .generic-dropdown .generic-dropdown-wrapper.right::after {
+    .ng-popover .ng-popover-wrapper.right::after {
       content: ' ';
       position: absolute;
       top: 4px;
@@ -80,8 +80,8 @@
       border-top: 9px solid transparent;
       border-bottom: 9px solid transparent;
       z-index: 1; }
-  .generic-dropdown .generic-dropdown-content {
+  .ng-popover .ng-popover-content {
     overflow: auto; }
 
-.generic-dropdown.hide {
+.ng-popover.hide {
   display: none; }
