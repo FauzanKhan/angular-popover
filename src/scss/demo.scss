@@ -47,6 +47,7 @@ body{
 	.flash-message{
 		/*background: rgb(0, 113, 181, .8);*/
 		padding: 20px;
+		max-width: 280px;
 		border: 1px solid #CCC;
 		border-radius: 3px;
 		background: #FFF;
@@ -54,9 +55,10 @@ body{
 		bottom: 50px;
 		border-radius: 0px;
 		font-size: 14px;
-		color: #999;
+		color: #666;
 		transition: all 900ms ease;
 		right: 50px;
+		font-size: 18px;
 		&.vis{
 			opacity: 1;
 		}

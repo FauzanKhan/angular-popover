@@ -3,15 +3,11 @@ app.directive('ngPopover', function() {
     return {
         restrict: 'EA',
         scope: {
-            // show: '=',
             direction: '@',
             trigger: '@',
             onClose: '&',
             onOpen: '&',
-            maxHeight: '@',
             popoverClass: '@',
-            width: '@',
-            height: '@'
         },
         replace: true,
         transclude: true, // we want to insert custom content inside the directive
@@ -39,9 +35,12 @@ app.directive('ngPopover', function() {
                 if(!target.hasClass('hide')){
                     ctrl.registerBodyListener();
                     $scope.onOpen();
+                    $scope.$apply();
                 }
                 else{
+                    ctrl.unregisterBodyListener();
                     $scope.onClose();
+                    $scope.$apply();
                 }
             });
 
@@ -60,7 +59,6 @@ app.directive('ngPopover', function() {
                         target.toggleClass('hide');
                         left = getTriggerOffset().left - targetWidth - 10 + 'px';
                         top = getTriggerOffset().top + 'px';
-                        // top = getTriggerOffset().top + trigger.outerHeight()/2 +'px';
                         break;
                     }
 
@@ -81,7 +79,6 @@ app.directive('ngPopover', function() {
                     default:{
                         left = getTriggerOffset().left +'px';
                         top = getTriggerOffset().top + trigger.outerHeight() + 10 + 'px'
-                        break;
                     }
                 }
                 target.css({
@@ -93,17 +90,9 @@ app.directive('ngPopover', function() {
 
             calcPopoverPosition(trigger, target);
 
-          // closeMenu = function (event) {
-            //     $document.off('click', closeMenu);
-            //     target.addClass('hide');
-            //     closeMenu = angular.noop;
-            // };
-            // $document.on('click', closeMenu);
-
-            // ctrl.registerBodyListener();
         },
-        controller: function($scope, $document){
-            this.document = $document;
+
+        controller: ['$scope', function($scope){
             var bodyListenerLogic = function(e){
                 var clickedElement = e.target;
                 var insideDropdown = false;
@@ -117,16 +106,18 @@ app.directive('ngPopover', function() {
                     angular.element('.generic-dropdown').addClass('hide');
                     document.body.removeEventListener('click', bodyListenerLogic);
                     $scope.onClose();
+                    $scope.$apply();
                 }
             }
             this.registerBodyListener = function(){
                 document.body.addEventListener('click', bodyListenerLogic);
-            };
-            this.unregisterBodyListerner = function(){
+            }
+
+            this.unregisterBodyListener = function(){
                 document.body.removeEventListener('click', bodyListenerLogic)
             }
-        },
-    	template: '<div class="generic-dropdown hide" ng-style="style"><div class="generic-dropdown-wrapper {{dropDirection}}"><div class="generic-dropdown-content" style="max-height:{{maxHeight}}" ng-class="popoverClass"><ng-transclude></ng-transclude></div></div></div>'
+        }],
+    	template: '<div class="generic-dropdown hide" ng-style="style"><div class="generic-dropdown-wrapper {{dropDirection}}"><div class="generic-dropdown-content" ng-class="popoverClass"><ng-transclude></ng-transclude></div></div></div>'
     }
 });
 app.service('genericDropdownService', function(){

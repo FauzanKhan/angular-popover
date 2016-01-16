@@ -16,21 +16,21 @@
 		<span class="button ng-popover-trigger" id="heading-popover">Popover with Heading</span>
 		<span class="button ng-popover-trigger" id="custom-popover">Popover with Custom Template</span>
 	</div>
-	<div class="flash-message" ng-class="datepicker ? 'vis' : 'hidden'">
-		
+	<div class="flash-message">
+		{{message}}
 	</div>
 	<footer>
 		<a href="https://github.com/FauzanKhan/angular-popover.git" target="_blank">
 			<!-- <i class="material-icons">github</i> <--><img src="http://cdn.flaticon.com/png/256/25231.png" alt=""></--> Fork on GitHub
 		</a>
 	</footer>
-	<ng-popover trigger="normal-popover" popover-class="normal-text-popover" direction="left">
+	<ng-popover trigger="normal-popover" popover-class="normal-text-popover" direction="left" on-open="openCallback('text popover')" on-close="closeCallbacl('text popover')">
 		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur nulla incidunt provident quibusdam laborum suscipit. Vel laborum cupiditate, harum hic error ipsum dolorum, facilis culpa quo tenetur fugit eveniet illum.
 	</ng-popover>
-	<ng-popover trigger="heading-popover" popover-class="heading-popover" direction="top">
+	<ng-popover trigger="heading-popover" popover-class="heading-popover" direction="top" on-open="openCallback('heading popover')" on-close="closeCallback('heading popover')">
 		<h4>This text is inside an &lt;h4&gt; tag!</h4>
 	</ng-popover>
-	<ng-popover trigger="custom-popover" popover-class="custom-popover">
+	<ng-popover trigger="custom-popover" popover-class="custom-popover" on-open="openCallback('template popover')" on-close="closeCallback('template popover')">
 	    <div class="condition-popover">
 	      	<div class="popover-header">
 	        	<div class="popover-header-content clearfix">
@@ -53,7 +53,7 @@
 	          		</div>
 	        	</div>
 	      	</div>
-	      	<div class="popover-body">You can do some super crazy stuff here and this popover will hold. <span>Believe it!</span></div>
+	      	<div class="popover-body">You can do some super crazy stuff here and this popover wont break.<br> <span>Believe it!</span></div>
 	      	<div class="popover-footer text-right">
 	      		<span class="button">Cancel</span>
 	      		<span class="button">Okay</span>
@@ -62,7 +62,7 @@
 	</ng-popover>
 	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0-rc.2/angular.min.js"></script>
-	<script src="src/js/app.js"></script>
-	<script src="src/js/ngPopover.js"></script>
+	<script src="dist/js/app.min.js"></script>
+	<script src="dist/js/ngPopover.min.js"></script>
 </body>
 </html>

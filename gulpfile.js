@@ -22,7 +22,7 @@ gulp.task('sass', function(){
 			notify({
 	      		message: "Error Comiling CSS",
 	    	});
-	    	sass.logError;
+	    	sass.logError();
 		}))
 		.pipe(gulp.dest(path.dest.css))
 		.pipe(notify({
@@ -39,19 +39,6 @@ gulp.task('minify-js', function(){
 	      message: "Generated <%= file.relative %>",
 	    }));
 });
-
-// gulp.task('minify-css', ['sass'], function(){
-// 	gulp.src(path.dest.css+'/*.css')
-// 		// .pipe(uglify())
-// 		.pipe(rename({'suffix': '.min'}))
-// 		.pipe(notify({
-// 	      message: "Generated file: <%= file.relative %> @ <%= options.date %>",
-// 	      templateOptions: {
-// 	        date: new Date()
-// 	      }
-// 	    }))
-// 		.pipe(gulp.dest(path.dest.css))
-// });
 
 gulp.task('minify', ['sass', 'minify-js']);
 
