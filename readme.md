@@ -5,7 +5,9 @@ An elegant, easily customizable generic popover in Angular that transcludes cust
 * An angular directive for generic popovers.
 * Popovers can contain simple text to complex html templates.
 * Popovers can have callback functions for opening and closing.
-* The script also provides a factory to close all or specific directives manually
+* Popovers can have custom directions.
+* The script also provides a factory to close all or specific directives manually.
+* Works well with/without Bootstrap/Foundation.
 ![](http://s21.postimg.org/8zwq3pzzb/popover1.png)
 
 ### Dependecies
