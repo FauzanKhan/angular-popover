@@ -1,0 +1,87 @@
+.ng-popover {
+  border: 1px solid #EAEAEA;
+  position: relative;
+  border-radius: 4px;
+  min-width: 50px;
+  min-height: 20px;
+  background: #FFF;
+  z-index: 10; }
+  .ng-popover .ng-popover-wrapper {
+    position: relative; }
+    .ng-popover .ng-popover-wrapper.bottom::before {
+      content: ' ';
+      position: absolute;
+      top: -9px;
+      left: 9px;
+      border-bottom: 9px solid #FFF;
+      border-left: 9px solid transparent;
+      border-right: 9px solid transparent;
+      z-index: 2; }
+    .ng-popover .ng-popover-wrapper.bottom::after {
+      content: ' ';
+      position: absolute;
+      top: -10px;
+      left: 9px;
+      border-bottom: 9px solid #EAEAEA;
+      border-left: 9px solid transparent;
+      border-right: 9px solid transparent;
+      z-index: 1; }
+    .ng-popover .ng-popover-wrapper.top::before {
+      content: ' ';
+      position: absolute;
+      bottom: -7px;
+      left: 12px;
+      border-top: 7px solid #FFF;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      z-index: 2; }
+    .ng-popover .ng-popover-wrapper.top::after {
+      content: ' ';
+      position: absolute;
+      bottom: -9px;
+      left: 10px;
+      border-top: 9px solid #EAEAEA;
+      border-left: 9px solid transparent;
+      border-right: 9px solid transparent;
+      z-index: 1; }
+    .ng-popover .ng-popover-wrapper.left::before {
+      content: ' ';
+      position: absolute;
+      right: -8px;
+      top: 5px;
+      border-left: 8px solid #FFF;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      z-index: 2; }
+    .ng-popover .ng-popover-wrapper.left::after {
+      content: ' ';
+      position: absolute;
+      right: -9px;
+      top: 4px;
+      border-left: 9px solid #EAEAEA;
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      z-index: 1; }
+    .ng-popover .ng-popover-wrapper.right::before {
+      content: ' ';
+      position: absolute;
+      top: 5px;
+      left: -8px;
+      border-right: 8px solid #FFF;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      z-index: 2; }
+    .ng-popover .ng-popover-wrapper.right::after {
+      content: ' ';
+      position: absolute;
+      top: 4px;
+      left: -9px;
+      border-right: 9px solid #EAEAEA;
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      z-index: 1; }
+  .ng-popover .ng-popover-content {
+    overflow: auto; }
+
+.ng-popover.hide {
+  display: none; }
