@@ -14,30 +14,28 @@
             replace: true,
             transclude: true, // we want to insert custom content inside the directive
             link: function($scope, element, attrs, ctrl) {
-                var $document = ctrl.document;
-                $scope.show = false;
                 $scope.popoverClass = attrs.popoverClass;
-                $scope.style = {
-                    width: attrs.width,
-                    height: attrs.height
-                }
+                $scope.dropDirection = attrs.direction || 'bottom';
                 var left, top;
                 var trigger = angular.element('#'+$scope.trigger);
                 var target = angular.element('.ng-popover[trigger="'+$scope.trigger+'"]');
-                $scope.dropDirection = attrs.direction || 'bottom';
+
+                // Add click event listener to trigger
                 trigger.bind('click', function(ev){
                     var left, top;
-                    var trigger = angular.element('#'+$scope.trigger);
-                    var target = angular.element('.ng-popover[trigger="'+$scope.trigger+'"]');
+                    var trigger = angular.element('#'+$scope.trigger); //get trigger element 
+                    var target = angular.element('.ng-popover[trigger="'+$scope.trigger+'"]'); //get triger's target popover
                     ev.preventDefault();
-                    calcPopoverPosition(trigger, target);
-                    angular.element('.ng-popover').not('[trigger="'+$scope.trigger+'"]').addClass('hide');
-                    target.toggleClass('hide');
+                    calcPopoverPosition(trigger, target); //calculate the position of the popover
+                    angular.element('.ng-popover').not('[trigger="'+$scope.trigger+'"]').addClass('hide'); //Hide all the popovers except for the target popover
+                    target.toggleClass('hide'); //toggle display of target popover
+                    // if target popover is visible then add click listener to body and call the open popover callback
                     if(!target.hasClass('hide')){
                         ctrl.registerBodyListener();
                         $scope.onOpen();
                         $scope.$apply();
                     }
+                    //else remove click listener from body and call close popover callback
                     else{
                         ctrl.unregisterBodyListener();
                         $scope.onClose();
@@ -49,6 +47,7 @@
                     return trigger.offset()
                 };
 
+                // calculates the position of the popover
                 var calcPopoverPosition = function(trigger, target){
                     switch($scope.dropDirection){
                         case 'left': {
@@ -90,6 +89,7 @@
             },
 
             controller: ['$scope', function($scope){
+                // logic to hide popover on click of body
                 var bodyListenerLogic = function(e){
                     var clickedElement = e.target;
                     var insidePopover = false;
@@ -114,7 +114,7 @@
                     document.body.removeEventListener('click', bodyListenerLogic)
                 }
             }],
-            template: '<div class="ng-popover hide" ng-style="style"><div class="ng-popover-wrapper {{dropDirection}}"><div class="ng-popover-content" ng-class="popoverClass"><ng-transclude></ng-transclude></div></div></div>'
+            template: '<div class="ng-popover hide"><div class="ng-popover-wrapper {{dropDirection}}"><div class="ng-popover-content" ng-class="popoverClass"><ng-transclude></ng-transclude></div></div></div>'
         }
     });
 
