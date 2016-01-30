@@ -27,7 +27,7 @@
                     var target =  document.querySelector('.ng-popover[trigger="'+$scope.trigger+'"]'); //get triger's target popover
                     ev.preventDefault();
                     calcPopoverPosition(trigger, target); //calculate the position of the popover
-                   hideAllPopovers();
+                   hideAllPopovers(trigger);
                     target.classList.toggle('hide'); //toggle display of target popover
                     // if target popover is visible then add click listener to body and call the open popover callback
                     if(!target.classList.contains('hide')){
@@ -138,7 +138,8 @@
 
     // Hides all popovers, skips the popover whose trigger Id is provided in the function call
     var hideAllPopovers = function(trigger){
-         var allPopovers = trigger ? document.querySelectorAll('.ng-popover:not([trigger="'+trigger+'"])') : document.querySelectorAll('.ng-popover');
+        var triggerId = trigger.getAttribute('id');
+         var allPopovers = trigger != undefined ? document.querySelectorAll('.ng-popover:not([trigger="'+triggerId+'"])') : document.querySelectorAll('.ng-popover');
         for(var i =0; i<allPopovers.length; i++){
             var popover = allPopovers[i];
             if(!popover.classList.contains('hide'))
