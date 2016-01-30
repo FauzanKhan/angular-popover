@@ -12,7 +12,6 @@ An elegant, easily customizable generic popover in Angular that transcludes cust
 
 ### Dependecies
 * Angular.js
-* jQuery (will be removed in future versions)
 
 ### Installation
 * Copy ngPopover.js and ngPopover.css from the repository and use it the way you like.
