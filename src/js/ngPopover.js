@@ -103,7 +103,7 @@
                         }
                     } while ((clickedElement = clickedElement.parentNode));
                     if(!insidePopover) {
-                        hideAllPopovers($scope.trigger);
+                        hideAllPopovers();
                         document.body.removeEventListener('click', bodyListenerLogic);
                         $scope.onClose();
                         $scope.$apply();
@@ -138,7 +138,9 @@
 
     // Hides all popovers, skips the popover whose trigger Id is provided in the function call
     var hideAllPopovers = function(trigger){
-        var triggerId = trigger.getAttribute('id');
+        var triggerId;
+        if(trigger)
+            triggerId = trigger.getAttribute('id');
          var allPopovers = trigger != undefined ? document.querySelectorAll('.ng-popover:not([trigger="'+triggerId+'"])') : document.querySelectorAll('.ng-popover');
         for(var i =0; i<allPopovers.length; i++){
             var popover = allPopovers[i];
