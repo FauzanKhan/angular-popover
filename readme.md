@@ -28,7 +28,7 @@ angular.module('myApp', ['ngPopover']);
 ```html
 
 <ng-popover 
-      trigger="popoverTrigger"         // ID of the (trigger) element that'll open/close the popover
+      trigger="popover-trigger"         // ID of the (trigger) element that'll open/close the popover
       direction="left"                // The direction in which the popover hould appear can be equal to top, bottom, left & right. bottom is the default value
       popover-class="custom-popover" // CSS Class of your popover. Ideally you should define the styles of your HTML under this class 
       on-open="openCallback()"      // Function to be called when the popover is shown
