@@ -1,0 +1,49 @@
+{
+    "extends": "airbnb-base",
+    "env": {
+        "browser": true,
+        "es6": true,
+        "jasmine": true,
+        "jquery": true
+    },
+    "rules": {
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        // disallow reassignment of function parameters
+        // allow parameter object manipulation
+        // rule: http://eslint.org/docs/rules/no-param-reassign.html
+        "no-param-reassign": [
+            2,
+            {
+                "props": false
+            }
+        ],
+        "max-len": ["error", 150],
+        "new-cap": 0,
+        "no-use-before-define": ["error", { "functions": false, "classes": true }]
+    },
+    "globals": {
+        "angular": true,
+        "_": true,
+        "Rx": true
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true
+        }
+    }
+}
