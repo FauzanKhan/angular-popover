@@ -12,5 +12,7 @@ app.controller('masterController', ['$scope', 'ngPopoverFactory', function($scop
 
 	$scope.closePopover = function(trigger){
 		ngPopoverFactory.closePopover(trigger);
-	}
+	};
+
+	var test = {no: 'comma-dange'}
 }]);
