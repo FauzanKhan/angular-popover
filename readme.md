@@ -1,5 +1,5 @@
 # ngPopover
-An elegant, easily customizable generic popover in Angular that transcludes custom HTML.
+An elegant, easily customizable generic popover in Angular that transcludes custom HTML
 
 ### Description
 * An angular directive for generic popovers.
