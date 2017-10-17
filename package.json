@@ -1,6 +1,6 @@
 {
   "name": "fzn-angular-popover",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "An easy to customize popover written in angular",
   "main": "index.html",
   "dependencies": {},
