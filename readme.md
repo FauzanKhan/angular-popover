@@ -52,7 +52,7 @@ angular.module('myApp', ['ngPopover']);
 
 ```
 
-* Ideally all your popovers should be present at the bottom of the body.
+* Ideally all your popovers should be present at the bottom of the body
 
 * To manually close a popover use ```ngPopoverFactory```
 * Inject ```ngPopoverFactory``` in you controller :
