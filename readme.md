@@ -17,7 +17,7 @@ An elegant, easily customizable generic popover in Angular that transcludes cust
 * Copy ngPopover.js and ngPopover.css from the repository and use it the way you like.
 
 ### Usage
-* Make sure you include the '''ngPopover''' module in you angular app: 
+* Make sure you include the '''ngPopover''' module in you angular app:
 
 ```
 angular.module('myApp', ['ngPopover']);
@@ -27,10 +27,10 @@ angular.module('myApp', ['ngPopover']);
 
 ```html
 
-<ng-popover 
+<ng-popover
       trigger="popover-trigger"         // ID of the (trigger) element that'll open/close the popover
       direction="left"                // The direction in which the popover hould appear can be equal to top, bottom, left & right. bottom is the default value
-      popover-class="custom-popover" // CSS Class of your popover. Ideally you should define the styles of your HTML under this class 
+      popover-class="custom-popover" // CSS Class of your popover. Ideally you should define the styles of your HTML under this class
       on-open="openCallback()"      // Function to be called when the popover is shown
       on-close="closeCallback()">  // Function to be called when the popover is hidden
 
@@ -39,11 +39,11 @@ angular.module('myApp', ['ngPopover']);
 </ng-popover>
 
 ```
-* The trigger element for above popover would look like this :
+* The trigger element for above popover would look like this:
 
 ```html
 
-<span 
+<span
       id="popover-trigger"         // Notice the same ID is provided in the trigger attribute of the popover
       class="ng-popover-trigger"> // Add this class to your trigger elements
 
@@ -55,7 +55,7 @@ angular.module('myApp', ['ngPopover']);
 * Ideally all your popovers should be present at the bottom of the body.
 
 * To manually close a popover use ```ngPopoverFactory```
-* Inject ```ngPopoverFactory``` in you controller : 
+* Inject ```ngPopoverFactory``` in you controller :
 
 ```javascript
 angular.module("myApp").controller("myController", function(ngPopoverFactory){
@@ -63,13 +63,13 @@ angular.module("myApp").controller("myController", function(ngPopoverFactory){
 });
 ```
 
-* Once you've injected the factory you can manually close the dropdown by calling the closePopover function of the factory: 
+* Once you've injected the factory you can manually close the dropdown by calling the closePopover function of the factory:
 
 ```
 ngPopoverFactory.closePopover(triggerId)
 ```
 
-* You can also close all the popovers at the same time by calling closeAll function of thr factory: 
+* You can also close all the popovers at the same time by calling closeAll function of thr factory:
 
 ```
 ngPopoverFactory.closeAll();
