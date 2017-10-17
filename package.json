@@ -1,6 +1,6 @@
 {
   "name": "fzn-angular-popover",
-  "version": "2.0.0",
+  "version": "0.0.0-development",
   "description": "An easy to customize popover written in angular",
   "main": "index.html",
   "dependencies": {},
@@ -9,14 +9,16 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.1.1",
     "gulp-uglify": "^1.5.1",
-    "gulp-watch": "^4.3.5"
+    "gulp-watch": "^4.3.5",
+    "semantic-release": "^8.2.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FauzanKhan/angular-popover.git"
+    "url": "https://github.com/FauzanKhan/angular-popover.git"
   },
   "keywords": [
     "angular",
